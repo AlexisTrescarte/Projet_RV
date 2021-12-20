@@ -11,14 +11,14 @@
         <a-scene light="defaultLightsEnabled: false">
             
              <a-assets>
-                <img id="ciel" src="ciel.jpg">
-                <img id="bois" src="bois.jpg">
-                <img id="metal" src="metal.jpg">
-                <img id="cordon" src="cordon.jpg">
-                <img id="guernica" src="guernica.jpg">
-                <img id="vangog" src="vangog.jpg"> 
-                <img id="liberte" src="liberte.jpg">
-                <img id="radeau" src="radeau.jpg">
+                <img id="ciel" src="Textures/ciel.jpg">
+                <img id="bois" src="Textures/bois.jpg">
+                <img id="metal" src="Textures/metal.jpg">
+                <img id="cordon" src="Textures/cordon.jpg">
+                <img id="guernica" src="Textures/guernica.jpg">
+                <img id="vangog" src="Textures/vangog.jpg"> 
+                <img id="liberte" src="Textures/liberte.jpg">
+                <img id="radeau" src="Textures/radeau.jpg">
                 <a-asset-item id="sol" src="GLTFmodel/sol.glb"></a-asset-item>
                 <a-asset-item id="musee" src="GLTFmodel/musee.glb"></a-asset-item>
                 <a-asset-item id="canape" src="GLTFmodel/canape.glb"></a-asset-item>
@@ -437,7 +437,7 @@
                                 radius="1"
                                 position="-22.5 4 -19.4"
                                 rotation="90 0 0"
-                                sound="src: url(guernica.mp3); on: click">
+                                sound="src: url(Sound/guernica.mp3); on: click">
                     </a-cylinder>
                     <a-text value="AUDIO"
                         color="black"
@@ -504,7 +504,7 @@
                                 radius="1"
                                 position="27.2 4 19.4"
                                 rotation="90 0 0"
-                                 sound="src: url(vangog.mp3); on: click">
+                                 sound="src: url(Sound/vangog.mp3); on: click">
                     </a-cylinder>
                     <a-text value="AUDIO"
                             color="black"
@@ -572,7 +572,7 @@
                                 radius="1"
                                 position="-27.2 4 19.4"
                                 rotation="90 0 0"
-                                 sound="src: url(liberte.mp3); on: click">
+                                 sound="src: url(Sound/liberte.mp3); on: click">
                     </a-cylinder>
                     <a-text value="AUDIO"
                             color="black"
@@ -640,7 +640,7 @@
                                 radius="1"
                                 position="-7.2 4 19.4"
                                 rotation="90 0 0"
-                                sound="src: url(radeau.mp3); on: click">
+                                sound="src: url(Sound/radeau.mp3); on: click">
                     </a-cylinder>
                     <a-text value="AUDIO"
                             color="black"
@@ -749,7 +749,7 @@
                 <a-entity id="rig" 
                           position="-90 2 0"
                           rotation="0 -90 0">
-                    <a-camera>
+                    <a-camera raycaster="objects: .box">
                         <a-cursor></a-cursor>
                     </a-camera>
                 </a-entity> 
