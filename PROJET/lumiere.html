@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Projet</title>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+    
+    <body> 
+        <a-scene>
+            <a-assets>
+                <img id="metal" src="metal.jpg">
+            </a-assets>
+
+            <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="20 11 -15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="20 8.2 -15">
+                </a-sphere>
+                
+                <a-cone color="brown" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "20 8.2 -15">
+                </a-cone>
+            </a-entity>
+            
+             <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="0 11 -15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="0 8.2 -15">
+                </a-sphere>
+                 
+                <a-cone color="green" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "0 8.2 -15">
+                </a-cone>
+            </a-entity>
+            
+             <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="-20 11 -15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="-20 8.2 -15">
+                </a-sphere>
+                 
+                <a-cone color="blue" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "-20 8.2 -15">
+                </a-cone>
+            </a-entity>
+            
+            <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="20 11 15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="20 8.2 15">
+                </a-sphere>
+                
+                <a-cone color="orange" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "20 8.2 15">
+                </a-cone>
+            </a-entity>
+            
+             <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="0 11 15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="0 8.2 15">
+                </a-sphere>
+                 
+                <a-cone color="light-blue" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "0 8.2 15">
+                </a-cone>
+            </a-entity>
+            
+             <a-entity>
+                <a-cylinder material="src:#metal"
+                        height="4" 
+                        radius="0.1"
+                        position ="-20 11 15">
+                </a-cylinder>
+                
+                <a-sphere color="yellow" 
+                          radius="1"
+                          position="-20 8.2 15">
+                </a-sphere>
+                 
+                <a-cone color="purple" 
+                        radius-bottom="2" 
+                        radius-top="0.5"
+                        height="3"
+                        open-ended="true"
+                        opacity="0.7"
+                        position= "-20 8.2 15">
+                </a-cone>
+            </a-entity> 
+
+        </a-scene>
+    </body>
+</html>

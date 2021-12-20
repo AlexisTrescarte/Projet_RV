@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Projet</title>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+    
+    <body> 
+        <a-scene>
+            <img id="beton" src="beton.jpg">
+            <img id="tapis" src="tapis.jpg">
+            <img id="neige" src="neige.jpg">
+
+
+             
+                <!-- Herbe --> 
+                <a-box material="src:#neige; 
+                                 repeat: 100 100" 
+                       depth="1000" 
+                       height="0.2" 
+                       width="1000" 
+                       position ="0 -2 -6">
+                </a-box>
+
+                <!-- Sol -->
+                <a-box material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="40" 
+                       height="1" 
+                       width="79" 
+                       position ="0 -2 0">
+                </a-box>
+                
+                <!-- Tapis -->
+                <a-box material="src:#tapis; 
+                                 repeat: 4 4" 
+                       depth="20" 
+                       height="0.2" 
+                       width="78" 
+                       position ="0 -1.5 0">
+                </a-box>
+
+        </a-scene>
+    </body>
+</html>

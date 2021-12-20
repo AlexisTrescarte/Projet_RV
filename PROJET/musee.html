@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Projet</title>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+    
+    <body> 
+        <a-scene>
+            <a-assets>
+                <img id="beton" src="beton.jpg">
+                <img id="brique" src="brique.jpg">
+            </a-assets>
+
+            <a-box material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="40" 
+                       height="3" 
+                       width="100" 
+                       position ="0 13 0">
+                </a-box>
+                
+                <!-- Pilones à l'entrée -->
+                <a-cylinder material="src:#beton"
+                            height="16" 
+                            radius="1.5"
+                            position ="-48 6 15">
+                </a-cylinder>
+                
+                <a-cylinder material="src:#beton"
+                            height="16" 
+                            radius="1.5"
+                            position ="-48 6 -15">
+                </a-cylinder>
+                
+                <!-- Murs -->
+                <a-box material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="80" 
+                       position ="0 6 20">
+                </a-box>
+
+                <a-box material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="80" 
+                       position ="0 6 -20">
+                </a-box>
+
+                <a-box rotation="0 90 0"
+                       material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="1" 
+                       height="17"
+                       width="40"
+                       position ="40 6 0">
+                </a-box>
+
+                <a-box rotation="0 90 0"
+                       material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17"
+                       width="15"
+                       position ="-39.5 6 -12.9">
+                </a-box>
+
+                <a-box rotation="0 90 0" 
+                       material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="15" 
+                       position ="-39.5 6 12.9">
+                </a-box>
+
+        </a-scene>
+    </body>
+</html>
