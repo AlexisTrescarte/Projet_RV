@@ -1,0 +1,1111 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Projet</title>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+    
+    <body>
+        <a-scene light="defaultLightsEnabled: false">
+            
+             <a-assets>
+                <img id="ciel" src="ciel.jpg">
+                <img id="beton" src="beton.jpg">
+                <img id="brique" src="brique.jpg">
+                <img id="bois" src="bois.jpg">
+                <img id="tapis" src="tapis.jpg">
+                <img id="cuir" src="cuir.jpg">
+                <img id="metal" src="metal.jpg">
+                <img id="cordon" src="cordon.jpg">
+                <img id="guernica" src="guernica.jpg">
+                <img id="vangog" src="vangog.jpg"> 
+                <img id="liberte" src="liberte.jpg">
+                <img id="radeau" src="radeau.jpg">
+                <img id="sapin" src="sapin.jpg"> 
+                <img id="neige" src="neige.jpg"> 
+            </a-assets>
+            
+            
+            <!--  MESH DE COLLISION -->
+<!--
+            <a-asset-item id="mesh" src="navmesh.gltf"></a-asset-item>
+            <a-entity gltf-model="#mesh" nav-mesh></a-entity>
+-->
+            <!--            -->
+            
+            <a-entity light="type: directional; 
+                             color: light-blue;
+                             intensity: 0.5"
+                      position="-20 30 -20">
+            </a-entity> 
+
+            
+            <a-entity id="world">
+                
+                <!-- Ciel -->
+                <a-sky material="src:#ciel;
+                                 repeat: 2 2"
+                       rotation="0 90 0 "></a-sky>
+                
+                <!-- Herbe --> 
+                <a-box material="src:#neige; 
+                                 repeat: 100 100" 
+                       depth="1000" 
+                       height="0.2" 
+                       width="1000" 
+                       position ="0 -2 -6">
+                </a-box>
+
+                <!-- Sol -->
+                <a-box material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="40" 
+                       height="1" 
+                       width="79" 
+                       position ="0 -2 0">
+                </a-box>
+                
+                <!-- Tapis -->
+                <a-box material="src:#tapis; 
+                                 repeat: 4 4" 
+                       depth="20" 
+                       height="0.2" 
+                       width="78" 
+                       position ="0 -1.5 0">
+                </a-box>
+                
+                <!-- Plafond -->
+                <a-box material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="40" 
+                       height="3" 
+                       width="100" 
+                       position ="0 13 0">
+                </a-box>
+                
+                 <!-- Devanture -->
+                <a-text value="MUSEE"
+                        color="red"
+                        width="80"
+                        position="-51 12.7 -7"
+                        rotation="0 -90 0">
+                </a-text>        
+                
+                <!-- Pilones à l'entrée -->
+                <a-cylinder material="src:#beton"
+                            height="16" 
+                            radius="1.5"
+                            position ="-48 6 15">
+                </a-cylinder>
+                
+                <a-cylinder material="src:#beton"
+                            height="16" 
+                            radius="1.5"
+                            position ="-48 6 -15">
+                </a-cylinder>
+                
+                <!-- Murs -->
+                <a-box material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="80" 
+                       position ="0 6 20">
+                </a-box>
+
+                <a-box material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="80" 
+                       position ="0 6 -20">
+                </a-box>
+
+                <a-box rotation="0 90 0"
+                       material="src:#beton; 
+                                 repeat: 1 1" 
+                       depth="1" 
+                       height="17"
+                       width="40"
+                       position ="40 6 0">
+                </a-box>
+
+                <a-box rotation="0 90 0"
+                       material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17"
+                       width="15"
+                       position ="-39.5 6 -12.9">
+                </a-box>
+
+                <a-box rotation="0 90 0" 
+                       material="src:#brique; 
+                                 repeat: 5 5" 
+                       depth="1" 
+                       height="17" 
+                       width="15" 
+                       position ="-39.5 6 12.9">
+                </a-box>
+                
+                <!-- Canapés-->
+                <a-box  material="src:#cuir; 
+                                 repeat: 1 1" 
+                       depth="3" 
+                       height="2" 
+                       width="5" 
+                       position ="-20 -1 0"
+                       >
+                </a-box>  
+                
+                 <a-box  material="src:#cuir; 
+                                 repeat: 1 1" 
+                       depth="3" 
+                       height="2" 
+                       width="5" 
+                       position ="0 -1 0"
+                       >
+                </a-box>  
+                
+                 <a-box  material="src:#cuir; 
+                                 repeat: 1 1" 
+                       depth="3" 
+                       height="2" 
+                       width="5" 
+                       position ="20 -1 0"
+                       >
+                </a-box>  
+
+
+                <!-- Porte -->
+                <a-entity rotation="0 90 0" 
+                          animation="property: position;
+                                     loop: false; 
+                                     dur: 1000" 
+                          position ="-20 -3 -7.5"
+                          event-set__enter="_event: mouseenter;
+                                            animation.to: -20 -3 -20" 
+                          event-set__leave="_delay: 1000;
+                                            _event: mouseleave; 
+                                            animation.to: -20 -3 -7.5">
+
+                    <a-box material="src:#metal"
+                           depth="0.2" 
+                           height="14"
+                           width="11"
+                           position ="-7.5 7 -19">
+                    </a-box> 
+                </a-entity>
+                
+                <!-- Lumières -->
+                <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="20 11 -15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="20 8.2 -15">
+                    </a-sphere>
+                    
+                    <a-cone color="brown" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "20 8.2 -15">
+                    </a-cone>
+                </a-entity>
+                
+                 <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="0 11 -15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="0 8.2 -15">
+                    </a-sphere>
+                     
+                    <a-cone color="green" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "0 8.2 -15">
+                    </a-cone>
+                </a-entity>
+                
+                 <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="-20 11 -15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="-20 8.2 -15">
+                    </a-sphere>
+                     
+                    <a-cone color="blue" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "-20 8.2 -15">
+                    </a-cone>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="20 11 15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="20 8.2 15">
+                    </a-sphere>
+                    
+                    <a-cone color="orange" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "20 8.2 15">
+                    </a-cone>
+                </a-entity>
+                
+                 <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="0 11 15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="0 8.2 15">
+                    </a-sphere>
+                     
+                    <a-cone color="light-blue" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "0 8.2 15">
+                    </a-cone>
+                </a-entity>
+                
+                 <a-entity>
+                    <a-cylinder material="src:#metal"
+                            height="4" 
+                            radius="0.1"
+                            position ="-20 11 15">
+                    </a-cylinder>
+                    
+                    <a-sphere color="yellow" 
+                              radius="1"
+                              position="-20 8.2 15">
+                    </a-sphere>
+                     
+                    <a-cone color="purple" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="3"
+                            open-ended="true"
+                            opacity="0.7"
+                            position= "-20 8.2 15">
+                    </a-cone>
+                </a-entity>
+                
+                <!-- Pilonnes de gauche -->
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="0 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="0 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="0 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="10 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="10 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="10 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="20 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="20 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="20 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="30 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="30 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="30 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-10 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-10 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-10 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-20 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-20 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-20 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-30 0 -10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-30 -1.3 -10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-30 2.5 -10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <!-- Pilonnes de droite -->
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="0 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="0 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="0 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="10 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="10 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="10 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="20 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="20 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="20 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="30 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="30 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="30 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-10 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-10 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-10 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-20 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-20 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-20 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+                
+                <a-entity>
+                    <a-cylinder material= "src:#metal"
+                                height="5"
+                                radius="0.25"
+                                position="-30 0 10.5">
+                    </a-cylinder>
+                    <a-cylinder material= "src:#metal"
+                                height="0.25"
+                                radius="0.5"
+                                position="-30 -1.3 10.5">
+                    </a-cylinder>
+                     <a-sphere material= "src:#metal" 
+                              radius="0.5"
+                              position="-30 2.5 10.5">
+                    </a-sphere>
+                </a-entity>
+             
+                <!-- Cordon de sécurité-->
+                <a-cylinder material= "src:#cordon"
+                            height="60"
+                            radius="0.1"
+                            position="0 2.5 -10.5"
+                            rotation="90 90 0">
+                </a-cylinder>
+                <a-cylinder material= "src:#cordon"
+                            height="60"
+                            radius="0.1"
+                            position="0 2.5 10.5"
+                            rotation="90 90 0">
+                </a-cylinder>
+               
+                
+                
+                
+                <a-entity light="type: point;
+                                  intensity: 2;
+                                  distance: 80;
+                                  decay: 5"
+                        position="0 8.2 15">
+                </a-entity>
+                
+                 <a-entity light="type: point;
+                                  intensity: 2;
+                                  distance: 80;
+                                  decay: 5"
+                            position="0 8.2 -15">
+                </a-entity>
+                
+                 <a-entity light="type: point;
+                                  intensity: 2;
+                                  distance: 80;
+                                  decay: 5"
+                           position="20 8.2 15">
+                </a-entity>
+                
+                 <a-entity light="type: point;
+                                  intensity: 2;
+                                  distance: 80;
+                                  decay: 5"
+                            position="20 8.2 -15">
+                </a-entity>
+                               
+                 <a-entity light="type: point; 
+                                  intensity: 2;
+                                  distance:80;
+                                  decay: 5"
+                           position="-20 8.2 15">
+                </a-entity>
+                
+                 <a-entity light="type: point;
+                                  intensity: 2;
+                                  distance: 80;
+                                  decay: 5"
+                           position="-20 8.2 -15">
+                </a-entity>
+                
+               
+                
+                <!-- Tableaux -->
+                <a-entity id="tableaux"></a-entity>
+                
+                <!-- Arbre -->
+                    <a-entity>
+                     <a-cylinder material= "src:#bois"
+                                    height="20"
+                                    radius="0.7"
+                                    position="-50 0 30">
+                    </a-cylinder>
+                    <a-cone material="src:#sapin" 
+                            radius-bottom="8" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 3 30">
+                    </a-cone>
+                   <a-cone material="src:#sapin" 
+                            radius-bottom="7" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 5 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin" 
+                            radius-bottom="6" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 7 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin" 
+                            radius-bottom="5" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 9 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin" 
+                            radius-bottom="4" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 11 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin"  
+                            radius-bottom="3" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 13 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin" 
+                            radius-bottom="2" 
+                            radius-top="0.5"
+                            height="5"
+                            position= "-50 15 30">
+                    </a-cone>
+                    <a-cone material="src:#sapin"  
+                            radius-bottom="1" 
+                            radius-top="0.1"
+                            height="5"
+                            position= "-50 17 30">
+                    </a-cone>
+                </a-entity>          
+            </a-entity>
+            
+            <a-entity>
+                     <a-box rotation="0 0 0"
+                           material="src:#guernica ;
+                                     repeat: 1 1" 
+                           depth="1" 
+                           height="10"
+                           width="40"
+                           position ="0 5 -19">
+                    </a-box>
+                    
+                    <!-- cadre du tableau-->
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="42"
+                           position ="0 10.9 -19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="42"
+                           position ="0 -0.5 -19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="11"
+                           position ="-20.5 5 -19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="11"
+                           position ="20.5 5 -19">
+                    </a-box>
+                    <!-- description audio-->
+                     <a-cylinder id="sound1"
+                                material= "src:#metal"
+                                height="0.25"
+                                radius="1"
+                                position="-22.5 4 -19.4"
+                                rotation="90 0 0"
+                                sound="src: url(guernica.mp3); on: click">
+                    </a-cylinder>
+                    <a-text value="AUDIO"
+                        color="black"
+                        width="12"
+                        position="-23.3 4 -19.2">
+                    </a-text>
+                     <a-box class="boutonSound"
+                           color="red"
+                           depth="0.1" 
+                           height="0.5"
+                           width="0.5"
+                           position ="-22.5 3.3 -19.2">
+                    </a-box>
+                    <a-text value="II"
+                        color="black"
+                        width="12"
+                        position="-22.71 3.25 -19.15">
+                    </a-text>
+                    
+                </a-entity>
+                
+                 <!-- Tableau 2 : Nuit étoilée -->
+                <a-entity>
+                     <a-box rotation="0  0"
+                           material="src:#vangog ;
+                                     repeat: 1 1" 
+                           depth="1" 
+                           height="8"
+                           width="10"
+                           position ="20 5 19">
+                    </a-box>
+                    
+                    <!-- cadre du tableau-->
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="20 9.8 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="20 0.5 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="25.5 5.1 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="14.5 5.1 19">
+                    </a-box>
+                    <!-- description audio-->
+                     <a-cylinder id="sound2"
+                                material= "src:#metal"
+                                height="0.25"
+                                radius="1"
+                                position="27.2 4 19.4"
+                                rotation="90 0 0"
+                                 sound="src: url(vangog.mp3); on: click">
+                    </a-cylinder>
+                    <a-text value="AUDIO"
+                            color="black"
+                            width="12"
+                            rotation="0 180 0"
+                            position="28 4 19.2">
+                    </a-text>
+                    <a-box class="boutonSound"
+                           color="red"
+                           depth="0.1" 
+                           height="0.5"
+                           width="0.5"
+                           position ="27.2 3.3 19.2">
+                    </a-box>
+                    <a-text value="II"
+                        color="black"
+                        width="12"
+                        rotation="0 180 0"
+                        position="27.41 3.25 19.15">
+                    </a-text>
+                </a-entity>
+                
+                <!-- Tableau 3 : La Liberté guide le peuple -->
+                <a-entity>
+                     <a-box rotation="0  0"
+                           material="src:#liberte ;
+                                     repeat: 1 1" 
+                           depth="1" 
+                           height="8"
+                           width="10"
+                           position ="-20 5 19">
+                    </a-box>
+                    
+                    <!-- cadre du tableau-->
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="-20 9.8 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="-20 0.5 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="-25.5 5.1 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="-14.5 5.1 19">
+                    </a-box>
+                    <!-- description audio-->
+                     <a-cylinder id="sound3"
+                                material= "src:#metal"
+                                height="0.25"
+                                radius="1"
+                                position="-27.2 4 19.4"
+                                rotation="90 0 0"
+                                 sound="src: url(liberte.mp3); on: click">
+                    </a-cylinder>
+                    <a-text value="AUDIO"
+                            color="black"
+                            width="12"
+                            rotation="0 180 0"
+                            position="-26.4 4 19.2">
+                    </a-text>
+                    <a-box class="boutonSound"
+                           color="red"
+                           depth="0.1" 
+                           height="0.5"
+                           width="0.5"
+                           position ="-27.2 3.3 19.2">
+                    </a-box>
+                    <a-text value="II"
+                        color="black"
+                        width="12"
+                        rotation="0 180 0"
+                        position="-27 3.25 19.15">
+                    </a-text>
+                </a-entity>
+                
+                <!-- Tableau 4 : Le radeau de la méduse -->
+                <a-entity>
+                     <a-box rotation="0  0"
+                           material="src:#radeau ;
+                                     repeat: 1 1" 
+                           depth="1" 
+                           height="8"
+                           width="10"
+                           position ="0 5 19">
+                    </a-box>
+                    
+                    <!-- cadre du tableau-->
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="0 9.8 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           depth="1" 
+                           height="1"
+                           width="12"
+                           position ="0 0.5 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="5.5 5.1 19">
+                    </a-box>
+                    <a-box material="src:#bois"
+                           rotation="0 0 90"
+                           depth="1" 
+                           height="1"
+                           width="8.3"
+                           position ="-5.5 5.1 19">
+                    </a-box>
+                    <!-- description audio-->
+                     <a-cylinder id="sound4"
+                                material= "src:#metal"
+                                height="0.25"
+                                radius="1"
+                                position="-7.2 4 19.4"
+                                rotation="90 0 0"
+                                sound="src: url(radeau.mp3); on: click">
+                    </a-cylinder>
+                    <a-text value="AUDIO"
+                            color="black"
+                            width="12"
+                            rotation="0 180 0"
+                            position="-6.35 4 19.2">
+                    </a-text>
+                    <a-box class="boutonSound"
+                           color="red"
+                           depth="0.1" 
+                           height="0.5"
+                           width="0.5"
+                           position ="-7.17 3.3 19.2">
+                    </a-box>
+                    <a-text value="II"
+                        color="black"
+                        width="12"
+                        rotation="0 180 0"
+                        position="-6.97 3.25 19.15">
+                    </a-text>
+                </a-entity>
+
+                 <!-- Mur du fond anime -->
+                <a-entity position ="38.5 -0.5 0"
+                          animation="property:position;
+                                 to:38.5 -0.5 18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="brown"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                
+                <a-entity position ="38.5 1.6 0"
+                          animation="property:position;
+                                 to:38.5 1.6 -18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="blue"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                
+                <a-entity position ="38.5 3.7 0"
+                          animation="property:position;
+                                 to:38.5 3.7 18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="green"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                
+                 <a-entity position ="38.5 5.8 0"
+                          animation="property:position;
+                                 to:38.5 5.8 -18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="yellow"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                                
+                <a-entity position ="38.5 7.9 0"
+                          animation="property:position;
+                                 to:38.5 7.9 18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="purple"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                
+                <a-entity position ="38.5 10 0"
+                          animation="property:position;
+                                 to:38.5 10 -18;
+                                 loop: true;
+                                 dir: alternate;
+                                 dur: 5000">
+                     <a-box color="orange"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>
+                
+                <a-entity>
+                     <a-box position ="38.5 10 0"
+                            color="orange"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                    <a-box position ="38.5 7.9 0"
+                           color="purple"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                    <a-box position ="38.5 5.8 0"
+                           color="yellow"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                    <a-box position ="38.5 3.7 0"
+                           color="green"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                    <a-box position ="38.5 1.6 0"
+                           color="blue"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                    <a-box position ="38.5 -0.5 0"
+                           color="brown"
+                           depth="2" 
+                           height="2"
+                           width="2">
+                    </a-box>
+                </a-entity>     
+            
+            
+                <a-entity id="rig" 
+                          position="-90 0 0"
+                          rotation="0 -90 0">
+                    <a-camera>
+                        <a-cursor></a-cursor>
+                    </a-camera>
+                </a-entity> 
+            
+            <a-entity id="rig" 
+                      position="-90 2 0"
+                      rotation="0 -90 0" >
+                <a-camera position="0 1.6 0" >
+                    <a-cursor></a-cursor>
+                </a-camera>
+            </a-entity> 
+            
+            
+            
+        <!-- A faire : arreter les audio quand on réapuis dessus(juste programmer la fonction car bouton deja en place) + colision-->    
+            
+                 
+        </a-scene>
+        <script src="script.js"></script>
+
+    </body>
+</html>
